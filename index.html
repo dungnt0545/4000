@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px; /* Adjust the width as desired */
+        margin: 0 auto;
+      }
+
+      .box {
+        width: 10px; /* Adjust the width and height as desired */
+        height: 10px;
+        background-color: #fff; /* Adjust the background color as desired */
+        border: 1px solid #000; /* Adjust the border properties as desired */
+        margin: 1px;
+      }
+
+      .pass {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Four Thousand Weeks</h1>
+    <div id="container"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var container = document.getElementById("container");
+
+        // Specify the start date
+        var startDate = new Date("1991-08-29");
+        // Get the current date
+        var currentDate = new Date();
+        // Calculate the time difference in milliseconds
+        var timeDiff = currentDate.getTime() - startDate.getTime();
+        // Calculate the number of weeks
+        var weeks = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
+
+        for (var i = 1; i <= 4000; i++) {
+          var box = document.createElement("div");
+          box.classList.add("box");
+          box.setAttribute("title", i);
+          if (i <= weeks) {
+            box.classList.add("pass");
+          }
+          container.appendChild(box);
+        }
+      });
+    </script>
+  </body>
+</html>
